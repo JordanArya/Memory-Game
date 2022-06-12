@@ -1,0 +1,144 @@
+
+:root{
+	--primary-color : #002442;
+	--secondary-color:  #233142;
+	--font-color:  #C7C6C1;
+  --about-background: #002942;
+}
+
+.ligth-theme{
+	--primary-color :#049fcc;
+	--secondary-color:  linear-gradient(to right, rgba(255, 255, 0,1), rgba(255, 254, 86, 0.8));
+	--font-color: #FFFAF0;
+  --about-background: #00B1D2FF;
+  --game-background: #00B1D2FF;
+  --button-color:  #c5d4eb
+}
+
+
+
+/*Side Navbar*/
+.side-navigation{
+  color: var(--font-color);
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 15%;
+  background: var(--primary-color);
+  height: 100%;
+  padding: 0.5% 0.5%;
+  overflow: auto;
+  position: fixed;
+}
+
+.vertical-navigation-list #icon-log {
+  display: block;
+  color: var(--font-color);
+  padding: 5% 5%;
+  font-family: Jost;
+  font-size: 150%;
+  text-decoration: none;
+}
+
+.vertical-navigation-list #icon-log:hover {
+  color: black;
+  border-radius: 1000px;
+  background: var(--secondary-color);
+}
+
+.side-navigation > .icon{
+	width: auto;
+	margin-top: 150%;
+	/*margin-bottom: 75%;*/
+}
+
+
+.side-navigation .icon  > .in-icons{
+	padding: 0px 5% ;
+}
+
+
+.side-navigation > .icon > .in-icons:hover{
+
+	color: black;
+	background: var(--secondary-color);
+}
+
+.vertical-navigation-list #icon-log::after{
+  content: '';
+  width: 0%;
+  height: 2px;
+  background: #f44336;
+  display: block;
+  margin: auto;
+  transition: 0.8s;
+}
+
+.vertical-navigation-list #icon-log:hover::after{
+  width: 100%;
+}
+
+#logo-name{
+	font-size: 100%;
+}
+
+#logo{
+	color: white;
+}
+
+
+.side-navigation > .under-icon {
+	margin-top: 10%;
+	width: auto;
+}
+
+.side-navigation > .under-icon > .in-icons{
+	color: blue
+	padding: 0px 10%;
+}
+
+@media screen and (max-width: 580px){
+.side-navigation {  
+  display: flex;
+  background: var(--primary-color);
+  color: var(--font-color);
+  justify-content: space-around;
+   padding: 20px 0; 
+  height: 9%;
+  width: 100%;
+  align-items: center;
+  overflow: hidden;
+}
+
+.side-navigation > .icon{
+  width: 15%;
+  margin-left: 12%;
+  margin-top: 3%;
+  /*margin-bottom: 75%;*/
+}
+
+.vertical-navigation-list #icon-log {
+  width: 150%;
+  font-size: 120%;
+  margin: 2% 2% 0 0;
+}
+
+.vertical-navigation-list #icon-log:hover {
+  background: var(--primary-color);
+}
+
+
+.vertical-navigation-list #icon-log:hover::after{
+  width: 0;  
+}
+
+.side-navigation > .icon > .in-icons:hover{
+  
+  background: var(--primary-color);
+}
+
+
+}
+
+
+

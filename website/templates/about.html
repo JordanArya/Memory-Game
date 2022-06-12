@@ -1,0 +1,160 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+
+<!-- Font  -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Joan&display=swap" rel="stylesheet">
+
+<!-- Css and js  -->
+
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='about_style.css')}}">
+<script type="text/javascript" src="{{url_for('static', filename='about_script.js')}}"></script>
+
+
+<section>
+	<div class="About-me" >
+	
+		<h2>
+			FAQ
+		</h2>
+
+		<div class="faq">
+			<div class="question">
+				<h3>Cara Login ?</h3>	
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+	 		    <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+			 	</svg>
+			</div>
+
+			<div class="answer">
+				<ul>
+					<li>
+						<p>
+							Tekan tombol pengaturan di kiri 
+						</p>
+					</li>
+
+					<li>
+						<p>
+							Lalu tekan akun
+						</p>
+					</li>
+
+					<li>
+						<p>
+							Bila anda tak memiliki akun silakan tekan daftar
+						</p>
+					</li>
+				
+				
+				</ul>
+			</div>
+
+
+		</div>
+
+
+		<div class="faq">
+			<div class="question">
+				<h3>Cara bermain ?</h3>	
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+	 		    <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+			 	</svg>
+			</div>
+
+			<div class="answer">
+				<ul>
+					<li>
+						<p>
+							Tekan Home (Yang ada gambar rumah)
+						</p>
+					</li>
+
+					<li>
+						<p>
+							Lalu tambahkan gambar 
+						</p>
+					</li>
+
+					<li>
+						<p>
+							Tebaklah nama orang yang ada digambar tersebut
+						</p>
+					</li>
+
+				
+				
+				</ul>
+			</div>
+
+
+		</div>
+
+		<div class="faq">
+			<div class="question">
+				<h3>Cara Mengupload Gambar ?</h3>	
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+	 		    <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+			 	</svg>
+			</div>
+
+			<div class="answer">
+				<ul>
+					<li>
+						<p>
+							Tekan Home (Yang ada gambar rumah)
+						</p>
+					</li>
+
+					<li>
+						<p>
+							Tekan "tambahkan gambar"
+						</p>
+					</li>
+
+					<li>
+						<p>
+							Tekan Upload File
+						</p>
+					</li>
+
+					<li>
+						<p>
+							Upload lah foto yang ingin diupload
+						</p>
+					</li>
+
+					<li>
+						<p>
+							Tekan Next untuk mengupload foto berikutnya dan tekan Finish untuk mengakhiri uploadnya
+						</p>
+					</li>
+
+				
+				
+				</ul>
+			</div>
+
+
+		</div>
+
+			
+
+	</div>
+</section>
+
+
+<script type="text/javascript">
+	const faqs = document.querySelectorAll(".faq");
+	faqs.forEach(faq => {
+		console.log(faq)
+	  faq.addEventListener('click', function(){
+	      faq.classList.toggle('clicked')
+	  })
+	})
+</script>
+
+{% endblock content %}

@@ -1,0 +1,81 @@
+/*@import url('style.css');*/
+@import url('home_style.css');
+
+.Chosing-Game h1{
+	position: fixed;
+	margin-left: 5%;
+}
+
+.Game-Choose-btn-ch{
+	margin-bottom: 20%;
+}
+
+.Game-Choose-btn-list{
+
+	margin-top: 13%;
+	width: 30%;
+	height: 60%;
+	color: black;
+	align-items: center;
+}
+
+#Draft-Title{
+	text-align: center;
+	position: absolute;
+	width: 80%;
+	height: 15%;
+	border: darkred;
+	border: blue solid 3px;
+	border-radius: 5px;
+}
+
+#formFile{
+	position: absolute;
+	bottom: 0px;
+	width: 80%;
+	margin: 3% 3% 2% 2%;
+	margin-bottom: 20%;
+}
+
+.Upload-level-box{
+	font-size: 150%;
+	background: #90b1db;
+	width: 60%;
+	font-family: 'Kdam Thmor Pro'; /* By Tep Sovichet in google fonts */
+}
+
+#Next-button{
+	position: absolute;
+	bottom: 0px;
+	margin-bottom: 4%;
+	left: 75%;
+}
+
+#Finish-button{
+	position: absolute;
+	bottom: 0px;
+	margin-bottom: 4%;
+	left: 55%;
+}
+
+.container{
+	margin-top: 10%;
+	border: black dashed 2px;
+	width: 70%;
+	height: 45%;
+	border-radius: 5px;
+}
+
+.container img{
+	position: absolute;
+	margin-top: 1%;
+	left: 22.3%;
+	margin: 0px 0px;
+	width: 55.5%;
+	height: 42.2%;
+}
+
+#input_img{
+	position: fixed;
+	margin-left: 6%;
+}

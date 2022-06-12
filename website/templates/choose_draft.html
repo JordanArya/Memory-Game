@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='draft_style.css')}}">
+<script type="text/javascript" src="{{url_for('static', filename='home_Script.js')}}"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap" rel="stylesheet">
+
+<section class="background">
+	
+	<section class="Game">
+		
+		<img src="{{url_for('static', filename='Pciture_1/gambar1.jpg')}}"  class="q-picture" id="q-picture">
+		<div class="nama"> Tebak Namanya</div>
+	
+			<div class="input-group mb-3 answer-input">
+ 				 <input type="text" class="form-control" id="User-Answer" placeholder="Ayo Tebak Namanya" ondragenter ="NextLevel(this)" aria-label="Recipient's username" aria-describedby="button-addon2">
+  				<button class="btn btn-outline-secondary answer-btn" type="button" id="button-addon2" onclick= "NextLevel(this)">Kumpul</button>
+			</div>	
+
+	</section>
+
+
+	<div class="Chosing-Game">
+
+		<h1 class="sub-choose">
+			Upload Foto
+		</h1>
+
+	 
+
+	 	<div class="Game-Choose-btn-list">
+
+
+	 		<div class="Upload-level-box">
+	 			Jumlah Upload : <small> 1</small>
+	 		</div>
+
+	 		<div class="container">
+	 			<img src="{{url_for('static', filename='Pciture_1/gambar1.jpg')}}">
+	 		</div>
+
+			<form method='post'>
+
+			<div class="form-group">
+  				<input  type="file" id="input_img" onsubmit="update_photo()" >
+			</div>
+
+			<button type="button" class="btn btn-primary" id="Next-button">Next</button>
+			<button type="button" class="btn btn-primary" id="Finish-button">Submit</button>
+	
+			</form>
+		</div> 
+			 
+
+	</div>
+
+</section>
+
+
+
+<script type="text/javascript">
+	// const Name=['gambar1.jpg','gambar2.jpg','gambar3.jpg','gambar4.jpg','gambar5.jpg','gambar6.jpg']
+	document.getElementById('Max-level').innerText = '/ ' + (Name.length).toString()
+
+
+	var answer = document.getElementById("User-Answer");
+	answer.addEventListener("keydown", function(event) {
+	if (event.key === "Enter") {
+		NextLevel(this)
+	}
+
+	});
+
+	function update_photo(){
+
+	}
+
+
+
+
+
+</script>
+
+
+
+
+
+
+{% endblock content %}

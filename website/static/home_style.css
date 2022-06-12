@@ -1,0 +1,122 @@
+/*style="margin-left:18%;padding:1px 16px;height:1000px;"*/
+
+@import url('style.css');
+
+
+
+.background{
+	position: fixed;
+	color: var(--font-color);
+	width: 100%;
+	height: 100%;
+	margin-left: 15%;
+	background: var(--game-background);
+}
+
+.background .Game{
+	margin: 3% 2%;
+	position: fixed;
+	width: 50%;
+	background: var(--game-background);
+	height: 88%;
+}
+
+
+.background .Game .q-picture{
+	position: absolute;
+	margin: 9% 20.5%;
+	width: 60%;
+	height: 50%;
+}
+
+.background .Game .answer-input{
+	position: absolute;
+	margin: 60% 33%;
+	width: 38%;
+	height: 5%;
+	border-radius: 5px;
+}
+
+.background .Game .nama{
+	position: absolute;
+	margin: 50% 42%;
+	font-size: 20px;
+	color: var(--font-color);
+	width: 50%;
+
+}
+
+.answer-btn{
+	background: #fffeeb;
+	margin-left: 0.5%;
+	border-radius: 5px;
+}
+
+/* Choosing Game */
+
+.background .Chosing-Game{
+	margin: 2% 53%;
+	position: fixed;
+	width: 30%;
+	background: #86BEDA;
+	height: 93%;
+}
+
+.sub-choose{
+	padding: 3% 3%;
+	width: 30%;
+}
+
+.Game-Choose-btn-list{
+
+  color: var(--font-color);
+  list-style-type: none;
+  width: 28%;
+  background: #86BEDA;
+  padding: 0.5% 2.8%;
+  position: fixed;
+  margin-top: 15%;
+}
+
+.Game-Choose-btn-list .Game-Choose-btn{
+  cursor: pointer;
+  display: block;
+  color: black;
+  padding: 5% 15%;
+  font-family: Jost;
+  font-size: 150%;
+  text-decoration: none;
+  background: var(--button-color);
+  margin: 5% 10%;
+  text-align: center;
+  width: 90%;
+}
+
+.Game-Choose-btn-list .Game-Choose-btn a{
+  text-decoration: inherit;
+  color: black;
+}
+
+
+.Chosing-Game h1{
+	position: fixed;
+	display: block;
+	color: black;
+	margin: 1% 4%;
+
+}
+
+.Game-Choose-btn-list .life-section{
+	cursor: context-menu;
+}
+
+#reset-button{
+
+	width:100%;
+	margin-left:0;
+	margin-right:0;
+	padding-left:0;
+	padding-right:0;
+	display:block;
+	
+}
