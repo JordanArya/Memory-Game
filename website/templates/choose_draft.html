@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap" rel="stylesheet">
 
+
 <section class="background">
 	
 	<section class="Game">
@@ -34,22 +35,24 @@
 	 	<div class="Game-Choose-btn-list">
 
 
-	 		<div class="Upload-level-box">
-	 			Jumlah Upload : <small> 1</small>
+	 		<div class="Upload-level-box" id="Upload_sum">
+	 			Jumlah Upload : <small id="number_f"> 1</small>
 	 		</div>
 
-	 		<div class="container">
-	 			<img src="{{url_for('static', filename='Pciture_1/gambar1.jpg')}}">
+	 		<div class="container" >
+	 			<img src="{{url_for('static', filename='icon/No_image_profile.jpg')}}" id="picture_p">
 	 		</div>
 
 			<form method='post'>
 
 			<div class="form-group">
-  				<input  type="file" id="input_img" onsubmit="update_photo()" >
+  				<input  type="file" id="input_img" accept="image/*" oninput= "change_picture(this)">
+  				<input type="text" id="input-name" maxlength="30" size="25px" placeholder="Siapa Namanya">
 			</div>
 
-			<button type="button" class="btn btn-primary" id="Next-button">Next</button>
-			<button type="button" class="btn btn-primary" id="Finish-button">Submit</button>
+			<button type="button" class="btn btn-primary" id="Back-button" onclick="back(this)">Back</button>
+			<button type="button" class="btn btn-primary" id="Next-button" onclick="next()">Next</button>
+			<input type="submit" class="btn btn-primary" id="Finish-button" ></input>
 	
 			</form>
 		</div> 
@@ -63,7 +66,15 @@
 
 <script type="text/javascript">
 	// const Name=['gambar1.jpg','gambar2.jpg','gambar3.jpg','gambar4.jpg','gambar5.jpg','gambar6.jpg']
-	document.getElementById('Max-level').innerText = '/ ' + (Name.length).toString()
+	const picture_saved = []
+	
+	const img = document.getElementById('picture_p');
+	const img_inputed = document.getElementById('input_img');
+	const number = document.getElementById('number_f');
+	const name_txt = document.getElementById('input-name')
+	
+	
+
 
 
 	var answer = document.getElementById("User-Answer");
@@ -74,9 +85,108 @@
 
 	});
 
-	function update_photo(){
+
+
+	function change_picture(self){
+		const data = self.files[0];
+		if (data){
+			const reader = new FileReader();
+			reader.onload = function(){
+			const result = reader.result;
+			img.src = result
+		}
+		reader.readAsDataURL(data);
+
+			
+	}}
+
+	function next(){
+		
+		const name  = name_txt.value 
+		const datas = img_inputed.files[0]
+	
+
+		 if (picture_saved[parseInt(number.textContent-1)] != undefined){
+			const data = picture_saved[number.textContent-1]
+		
+
+
+			if(datas != data[1] && datas != undefined || name != data[0] && name != ''){
+				
+				if(datas == undefined ){
+					picture_saved.splice((number.textContent-1),1,[name,data[1]])
+				}
+
+				if(name == undefined){
+					picture_saved.splice((number.textContent-1),1,[data[0],datas])
+				}
+				
+				
+			
+			}
+		
+
+			
+			if (picture_saved[parseInt(number.textContent)] != undefined){
+				const reader = new FileReader();
+				reader.onload = function(){
+				const result = reader.result;
+				img.src = result
+				console.log(picture_saved[parseInt(number.textContent)-1])
+				name_txt.value = picture_saved[parseInt(number.textContent)-1][0];
+			
+			}
+			reader.readAsDataURL(picture_saved[parseInt(number.textContent)-1][1]);
+		}
+
+
+
+		document.getElementById('number_f').innerText =  parseInt(number.textContent) +1
+		img_inputed.value = ''
+		name_txt.value = ''
+		img.src = '../static/icon/No_image_profile.jpg'
+		
+
+		
 
 	}
+		
+
+		
+		else if (img_inputed.files[0] != undefined && name != ''){
+			picture_saved.push([name,datas])
+			
+			document.getElementById('number_f').innerText =  parseInt(number.textContent) +1
+			img_inputed.value = ''
+			img.src = '../static/icon/No_image_profile.jpg'
+			name_txt.value = ''
+	}
+
+		
+}
+
+	function back(self){
+		if (parseInt(number.textContent) > 1 ){
+
+			const data = picture_saved[parseInt(number.textContent-2)][1]
+			const previous_name = picture_saved[parseInt(number.textContent-2)][0]
+			
+		if (data){
+			const reader = new FileReader();
+			reader.onload = function(){
+			const result = reader.result;
+			img.src = result
+			name_txt.value = previous_name
+
+			document.getElementById('number_f').innerText =  parseInt(number.textContent) -1
+		}
+
+			reader.readAsDataURL(data);
+
+
+	}}}
+
+
 
 
 
