@@ -6,25 +6,20 @@
 <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='home_style.css')}}">
 <script type="text/javascript" src="{{url_for('static', filename='home_Script.js')}}"></script>
 
-
-
-
-
 <section class="background">
 	
 	<section class="Game">
 		
 		<img src="{{url_for('static', filename='Pciture_1/gambar1.jpg')}}"  class="q-picture" id="q-picture">
-		<div class="nama"> Tebak Namanya</div>
-	
-			<div class="input-group mb-3 answer-input">
- 				 <input type="text" class="form-control" id="User-Answer" placeholder="Ayo Tebak Namanya" ondragenter ="NextLevel(this)" aria-label="Recipient's username" aria-describedby="button-addon2" autocomplete="off">
-  				<button class="btn btn-outline-secondary answer-btn" type="button" id="button-addon2" onclick= "NextLevel(this)">Kumpul</button>
-			</div>
 
-	
+		<div class="input-container" id="input-container">
+			<div class="nama"> Tebak Namanya</div>
 		
-
+			<div class="input-group mb-3 answer-input">
+				 <input type="text" class="form-control" id="User-Answer" placeholder="Ayo Tebak Namanya" ondragenter ="NextLevel(this)" aria-label="Recipient's username" aria-describedby="button-addon2" autocomplete="off">
+				<button class="btn btn-outline-secondary answer-btn" type="button" id="button-addon2" onclick= "NextLevel(this)">Kumpul</button>
+			</div>
+		</div>
 
 	</section>
 

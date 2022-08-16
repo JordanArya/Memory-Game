@@ -1,9 +1,18 @@
 /*@import url('style.css');*/
 @import url('home_style.css');
 
-.Chosing-Game h1{
+.background .Upload-box{
+	margin: 2% 2.5%;
 	position: fixed;
-	margin-left: 5%;
+	width: 80%;
+	background: #86BEDA;
+	height: 93%;
+}
+
+.Upload-box h1{
+	position: fixed;
+	margin-left: 30%;
+	margin-top: -2%;
 }
 
 .Game-Choose-btn-ch{
@@ -41,69 +50,101 @@
 	font-size: 150%;
 	background: #90b1db;
 	width: 60%;
+	margin-top: -19%;
 	font-family: 'Kdam Thmor Pro'; /* By Tep Sovichet in google fonts */
 }
 
 #Next-button{
 	position: absolute;
 	bottom: 0px;
-	margin-bottom: 4%;
-	left: 75%;
-	width: 20%;
-	height: 10%;
+	margin-bottom: -15%;
+	left: 150%;
+	width: 30%;
+	height: 12%;
 }
 
 #Back-button{
 	position: absolute;
 	bottom: 0px;
-	margin-bottom: 4%;
-	left: 10%;
-	width: 20%;
-	height: 10%;
+	margin-bottom: -15%;
+	left: 70%;
+	width: 30%;
+	height: 12%;
 }
 
 #Finish-button{
 	position: absolute;
 	bottom: 0px;
-	margin-bottom: 4%;
-	left: 42%;
-	width: 20%;
-	height: 10%;
+	margin-bottom: -15%;
+	left: 110%;
+	width: 30%;
+	height: 12%;
 }
 
 .container{
-	margin-top: 10%;
+	margin-top: 3%;
 	border: black dashed 2px;
-	width: 70%;
-	height: 45%;
+	width: 150%;
+	height: 100%;
 	border-radius: 5px;
 }
 
 .container img{
 	position: absolute;
 	margin-top: 1%;
-	left: 22.3%;
+	left: 10%;
 	margin: 0px 0px;
-	width: 55.5%;
-	height: 42.2%;
+	width: 121%;
+	height: 95.2%;
 }
 
 #input_img{
 	position: fixed;
-	margin-left: 6%;
+	margin-left: 12%;
 }
 
-#input-name{
+.input-name{
 	position: fixed;
-	margin-top: 2.5%;
-	margin-left: 5.2%;
-	margin-bottom: 2%;
+	/*margin-top: 2.5%;*/
+	margin-left: 25%;
+	right: 6%;
+	width: 35%;
+	height: 7%;
+	font-size: 110%;
+	/*margin-bottom: 2%;*/
 
 }
+
+#f-input-heading{
+	top: 30%;
+}
+
+
+#input-f-name{
+	top: 35%;
+}
+
+#l-input-heading{
+	top: 45%;
+}
+
+
+#input-l-name{
+	top: 50%;
+
+}
+
+#r-input-heading{
+	top: 60%;
+}
+
+#input-relationship{
+	top: 65%;
+}
+
 
 
 /*Transition*/
 
-#picture_p:hover {
-  transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
-}
+
+

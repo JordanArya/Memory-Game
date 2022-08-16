@@ -15,11 +15,12 @@
 
 .background .Game{
 	margin: 3% 2%;
-	position: fixed;
+	position: absolute;
 	width: 50%;
 	background: var(--game-background);
-	height: 88%;
+	height: 100%;
 }
+
 
 
 .background .Game .q-picture{
@@ -29,27 +30,34 @@
 	height: 50%;
 }
 
+.input-container{
+		/*position: absolute;*/
+		margin-top: 5%;
+		height: 50%;
+		width: 50%;
+	}
+
 .background .Game .answer-input{
 	position: absolute;
-	margin: 60% 33%;
+	margin-top: 60%; 
+	margin-left: 33%;
 	width: 38%;
 	height: 5%;
-	border-radius: 5px;
+	border-radius: 10%;
 }
 
 .background .Game .nama{
 	position: absolute;
 	margin: 50% 42%;
-	font-size: 20px;
+	font-size: 130%;
 	color: var(--font-color);
 	width: 50%;
-
 }
 
 .answer-btn{
 	background: #fffeeb;
 	margin-left: 0.5%;
-	border-radius: 5px;
+	border-radius: 10%;
 }
 
 /* Choosing Game */
@@ -119,4 +127,11 @@
 	padding-right:0;
 	display:block;
 	
+}
+
+@media screen and (min-height:  927px){
+	.input-container{
+		/*position: flex;*/
+		margin-top: 40%;
+	}
 }
