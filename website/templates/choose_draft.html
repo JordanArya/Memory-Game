@@ -1,62 +1,40 @@
 {% extends "layout.html" %}
 
+
 {% block content %}
 
-<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='draft_style.css')}}">
-<script type="text/javascript" src="{{url_for('static', filename='home_Script.js')}}"></script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap" rel="stylesheet">
 
 
 <section class="background">
 	
+	<section class="Game">
+		
+		<img src="{{url_for('static', filename='Pciture_1/gambar1.jpg')}}"  class="q-picture" id="q-picture">
+
+		<div class="input-container" id="input-container">
+			<div class="nama"> Tebak Namanya</div>
+		
+			<div class="input-group mb-3 answer-input">
+				 <input type="text" class="form-control" id="User-Answer" placeholder="Ayo Tebak Namanya" ondragenter ="NextLevel(this)" aria-label="Recipient's username" aria-describedby="button-addon2" autocomplete="off">
+				<button class="btn btn-outline-secondary answer-btn" type="button" id="button-addon2" onclick= "NextLevel(this)">Kumpul</button>
+			</div>
+		</div>
+
+	</section>
 
 
-
-	<section class="Upload-box">
+	<section class="Chosing-Game">
 
 		<h1 class="sub-choose">
-			Upload Foto
+			Game Choose
 		</h1>
 
-	 	<div class="Game-Choose-btn-list">
-
-
-	 		<div class="Upload-level-box" id="Upload_sum">
-	 			Jumlah Upload : <small id="number_f"> 1</small>
-	 		</div>
-
-	 		<div class="container" >
-	 			<img src="{{url_for('static', filename='icon/No_image_profile.jpg')}}" id="picture_p">
-	 		</div>
-
-			<form method='post'>
-
-			<div class="form-group">
-
-  				<input  type="file" id="input_img" accept="image/*" oninput= "change_picture(this)" >
-  				<h4 class="input-name" id="f-input-heading">Nama Depan : </h4>
-  				<input type="text"  class="input-name" id="input-f-name" maxlength="30" size="25px" placeholder="Siapa Nama depan-nya">
-  				<h4 class="input-name" id="l-input-heading">Nama Belakang : </h4>
-  				<input type="text" class="input-name" id="input-l-name" maxlength="30" size="25px" placeholder="Siapa Nama Belakang-nya">
-  				<h4 class="input-name" id="r-input-heading">Hubungan : </h4>
-  				<select  class="input-name" id="input-relationship" placeholder="Hubungan dengan pemain">
-  					<option value='keluarga inti'>Keluarga Inti</option>
-  					<option value='keluarga jauh'>Keluarga Jauh</option>
-  					<option value="teman dekat">Teman Dekat</option>
-  					<option value="teman kerja">Teman Kerja</option>
-  				</select>
-
-			</div>
-
-			<button type="button" class="btn btn-primary" id="Back-button" onclick="back(this)">Back</button>
-			<button type="button" class="btn btn-primary" id="Next-button" onclick="next()">Next</button>
-			<input type="submit" class="btn btn-primary" id="Finish-button" ></input>
-	
-			</form>
-		</div> 
-			 
+		<ul class="Game-Choose-btn-list">	 
+			 <li class="Game-Choose-btn">
+			 	
+			 </li>
+			
+		</ul>
 
 	</section>
 
@@ -64,131 +42,9 @@
 
 
 
-<script type="text/javascript">
-	// const Name=['gambar1.jpg','gambar2.jpg','gambar3.jpg','gambar4.jpg','gambar5.jpg','gambar6.jpg']
-	const picture_saved = [];
-	
-	const img = document.getElementById('picture_p');
-	const img_inputed = document.getElementById('input_img');
-	const number = document.getElementById('number_f');
-	const f_name_txt = document.getElementById('input-f-name');
-	const l_name_txt = document.getElementById('input-l-name') ;
-	const relation_txt = document.getElementById('input-relationship');
 
-	relation_txt.value = ''
-
-
-	function change_picture(self){
-		const data = self.files[0];
-		if (data){
-			const reader = new FileReader();
-			reader.onload = function(){
-			const result = reader.result;
-			img.src = result
-		}
-		reader.readAsDataURL(data);		
-	}}
-
-	function next(){
-		
-		const f_name  = f_name_txt.value;
-		const l_name = l_name_txt.value; 
-		const relation = relation_txt.value;
-		const datas = img_inputed.files[0];
-
-		 if (picture_saved[parseInt(number.textContent-1)] != undefined){
-			const data = picture_saved[number.textContent-1]
-		
-			if(datas != data[1] && datas != undefined || f_name != data[0][0] && f_name != '' || l_name != data[0][1] && l_name != '' || relation != data[0][2] && relation != ''){
-				
-				// if(datas != undefined ){
-				// 	picture_saved.splice((number.textContent-1),1,[[f_name,l_name,relation],data[1]])
-				// 	console.log('erroe-1')
-				// }
-
-				if(f_name != data[0][0]){
-					picture_saved.splice((number.textContent-1),1,[[f_name,data[0][1],data[0][2]],data[1]])
-					console.log('erroe-2')
-				}
-
-				if(l_name != data[0][1]){
-					picture_saved.splice((number.textContent-1),1,[[data[0][0],l_name,data[0][2]],data[1]])
-					console.log('erroe-3')
-				}
-
-				if(relation != data[0][2]){
-					picture_saved.splice((number.textContent-1),1,[[data[0][0],data[0][1],relation],data[1]])
-					console.log('erroe-4')
-				}
-
-				if(datas){
-						picture_saved.splice((number.textContent-1),1,[[data[0][0],data[0][1],data[0][2]],datas])
-				}
-						
-			}
-			
-			if (picture_saved[parseInt(number.textContent)] != undefined){
-				const reader = new FileReader();
-				reader.onload = function(){
-				const result = reader.result;
-				img.src = result
-				console.log(picture_saved[parseInt(number.textContent)-1])
-				f_name_txt.value = picture_saved[parseInt(number.textContent)-1][0][0];
-				l_name_txt.value =  picture_saved[parseInt(number.textContent)-1][0][1];
-				relation_txt.value =  picture_saved[parseInt(number.textContent)-1][0][2];
-			}
-			reader.readAsDataURL(picture_saved[parseInt(number.textContent)][1]);
-		}
-
-		document.getElementById('number_f').innerText =  parseInt(number.textContent) +1;
-		img_inputed.value = '';
-		f_name_txt.value = '';
-		l_name_txt.value = '';
-		relation_txt.value = '';
-		img.src = '../static/icon/No_image_profile.jpg';
-		
-	}
-		
-		else if (img_inputed.files[0] != undefined && f_name != '' && l_name != '' && relation !=''){
-			picture_saved.push([[f_name,l_name,relation],datas])
-			
-			document.getElementById('number_f').innerText =  parseInt(number.textContent) +1;
-			img_inputed.value = '';
-			img.src = '../static/icon/No_image_profile.jpg';
-			f_name_txt.value = '';
-			l_name_txt.value = '';
-			relation_txt.value = '';
-	}
-		
-}
-
-	function back(self){
-		if (parseInt(number.textContent) > 1 ){
-
-			const data = picture_saved[parseInt(number.textContent-2)][1]
-			const previous_f_name = picture_saved[parseInt(number.textContent-2)][0][0]
-			const previous_l_name = picture_saved[parseInt(number.textContent-2)][0][1]
-			const previous_relation = picture_saved[parseInt(number.textContent-2)][0][2]
-			
-		if (data){
-			const reader = new FileReader();
-			reader.onload = function(){
-			const result = reader.result;
-			img.src = result
-			f_name_txt.value = previous_f_name;
-			l_name_txt.value = previous_l_name;
-			relation_txt.value = previous_relation; 
-
-			document.getElementById('number_f').innerText =  parseInt(number.textContent) -1
-		}
-
-			reader.readAsDataURL(data);
-
-
-	}}}
-
-</script>
-
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='home_style.css')}}">
+<script type="text/javascript" src="{{url_for('static', filename='home_Script.js')}}"></script>
 
 
 

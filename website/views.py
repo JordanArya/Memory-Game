@@ -20,6 +20,10 @@ def home():
 def about():
 	return render_template('about.html')
 
+@views.route("/upload")
+def upload_draft():
+	return render_template('upload_draft.html')
+
 @views.route("/choose")
 def choose_draft():
 	return render_template('choose_draft.html')

@@ -3,14 +3,14 @@
 
 {% block content %}
 
-<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='home_style.css')}}">
-<script type="text/javascript" src="{{url_for('static', filename='home_Script.js')}}"></script>
+
+
 
 <section class="background">
 	
 	<section class="Game">
 		
-		<img src="{{url_for('static', filename='Pciture_1/gambar1.jpg')}}"  class="q-picture" id="q-picture">
+		<img src="{{url_for('static', filename='Pciture_1/gambar1.jfif')}}"  class="q-picture" id="q-picture">
 
 		<div class="input-container" id="input-container">
 			<div class="nama"> Tebak Namanya</div>
@@ -32,10 +32,10 @@
 
 		<ul class="Game-Choose-btn-list">	 
 			 <li class="Game-Choose-btn">
-			 	<insert id='reset-button' onclick="Start_from_zero(this)"> Mulai Game Baru </insert>
+			 	<a href="{{ url_for('views.choose_draft')}}"> Mulai Game Baru </a>
 			 </li>
 			  <li class="Game-Choose-btn">
-			 	<a href="{{ url_for('views.choose_draft')}}"> Masukan Draft </a>
+			 	<a href="{{ url_for('views.upload_draft')}}"> Masukan Draft </a>
 			 </li>
 			  <li class="Game-Choose-btn life-section">
 			 	 Sisa Nyawa = <small id="life-tag">5</small>
@@ -52,17 +52,7 @@
 
 
 <script type="text/javascript">
-	// const Name=['gambar1.jpg','gambar2.jpg','gambar3.jpg','gambar4.jpg','gambar5.jpg','gambar6.jpg']
-	document.getElementById('Max-level').innerText = '/ ' + (Name.length).toString()
 
-
-	var answer = document.getElementById("User-Answer");
-	answer.addEventListener("keydown", function(event) {
-	if (event.key === "Enter") {
-		NextLevel(this)
-	}
-
-	});
 
 	
 
@@ -71,7 +61,8 @@
 </script>
 
 
-
+<script type="text/javascript" src="{{url_for('static', filename='home_Script.js')}}"></script>
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='home_style.css')}}">
 
 
 {% endblock content %}

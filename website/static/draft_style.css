@@ -49,9 +49,16 @@
 .Upload-level-box{
 	font-size: 150%;
 	background: #90b1db;
-	width: 60%;
+	width: 120%;
 	margin-top: -19%;
 	font-family: 'Kdam Thmor Pro'; /* By Tep Sovichet in google fonts */
+}
+
+.Upload-level-box select{
+	width: 50%;
+	margin-left: 2%;
+	right: 0%;
+	height: 1%;
 }
 
 #Next-button{

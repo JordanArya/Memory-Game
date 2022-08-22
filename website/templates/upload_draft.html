@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<section class="background">
+	
+	<section class="Upload-box">
+
+		<h1 class="sub-choose">
+			Upload Foto
+		</h1>
+
+	 	<div class="Game-Choose-btn-list">
+
+
+	 		<div class="Upload-level-box" id="Upload_sum">
+	 			Jumlah Upload : <small id="number_f"> 1</small>
+	 			<select id="user-indx"  oninput="change_to_selected_index()">	 				
+	 			</select>
+	 		</div>
+
+	 		<div class="container" >
+	 			<img src="{{url_for('static', filename='icon/No_image_profile.jpg')}}" id="picture_p">
+	 		</div>
+
+			<form method='post'>
+
+			<div class="form-group">
+
+  				<input  type="file" id="input_img" accept="image/*" oninput= "change_picture(this)" >
+  				<h4 class="input-name" id="f-input-heading">Nama Depan : </h4>
+  				<input type="text"  class="input-name" id="input-f-name" maxlength="30" size="25px" placeholder="Siapa Nama depan-nya">
+  				<h4 class="input-name" id="l-input-heading">Nama Belakang : </h4>
+  				<input type="text" class="input-name" id="input-l-name" maxlength="30" size="25px" placeholder="Siapa Nama Belakang-nya">
+  				<h4 class="input-name" id="r-input-heading">Hubungan : </h4>
+  				<select  class="input-name" id="input-relationship" placeholder="Hubungan dengan pemain">
+  					<option value='keluarga inti'>Keluarga Inti</option>
+  					<option value='keluarga jauh'>Keluarga Jauh</option>
+  					<option value="teman dekat">Teman Dekat</option>
+  					<option value="teman kerja">Teman Kerja</option>
+  				</select>
+
+			</div>
+
+			<button type="button" class="btn btn-primary" id="Back-button" onclick="back(this)">Back</button>
+			<button type="button" class="btn btn-primary" id="Next-button" onclick="next()">Next</button>
+			<input type="submit" class="btn btn-primary" id="Finish-button" ></input>
+	
+			</form>
+		</div> 
+			 
+
+	</section>
+
+</section>
+
+
+
+
+<script type="text/javascript" src="{{url_for('static', filename='draft_upload.js')}}"></script>
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='draft_style.css')}}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap" rel="stylesheet">
+
+
+
+
+
+{% endblock content %}
