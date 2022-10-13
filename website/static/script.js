@@ -2,6 +2,7 @@
 var logos = document.getElementById("logo");
 
 function ChangeTheme(self){
+	
 	document.body.classList.toggle('ligth-theme')
 	if(document.body.classList.contains("ligth-theme")){
 		document.getElementById('logo').src = "static/icon/moon.svg"
@@ -14,11 +15,17 @@ function ChangeTheme(self){
 		localStorage.ligthmode = 'Dark'
 	}
 
-	if (screen.width <= 580){
+	if (screen.width <= 920){
 		document.getElementById('logo-name').innerText = ''
 	}
 	
 	// document.getElementsById('')
 }
+
+
+
+
+
+
 
 

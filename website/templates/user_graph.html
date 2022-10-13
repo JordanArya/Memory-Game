@@ -1,0 +1,42 @@
+
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='graph.css')}}">
+
+
+
+
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="graphBox">
+	
+	<div class="box">		
+		<canvas id="myCharts" width="200" height="200"></canvas>
+	</div>
+	<div class="box">
+		<canvas id="Spesific-data" width="50" height="50"></canvas>
+	</div>
+</div>
+
+
+<script type="text/javascript">
+	var data_keluarga_jauh = {{data_keluarga_jauh|tojson}} ;
+	var data_keluarga_dekat = {{data_keluarga_dekat|tojson}};
+	var data_teman_dekat = {{data_teman_dekat|tojson}};
+	var data_teman_jauh = {{data_teman_jauh|tojson}};
+	var total_data = {{total_score|tojson}}
+
+	console.log(data_teman_jauh)
+	
+
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+<script type="text/javascript" src="{{url_for('static', filename='graph.js')}}"></script>
+
+{% endblock content %}
+
+
+
+

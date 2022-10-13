@@ -1,0 +1,16 @@
+header{  
+  position: sticky;
+  background: rgba(135, 206, 235,0.5);
+  justify-content: space-around;
+  padding: 20px 0; 
+  max-height: 9%;
+  width: 100%;
+  overflow: hidden;
+  
+}
+
+
+.vertical-navigation-list{
+  display: block;
+  margin: auto auto;
+}

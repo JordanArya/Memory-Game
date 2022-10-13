@@ -13,10 +13,16 @@
 		<img src="{{url_for('static', filename='Pciture_1/gambar1.jfif')}}"  class="q-picture" id="q-picture">
 
 		<div class="input-container" id="input-container">
-			<div class="nama"> Tebak Namanya</div>
+			<div class="nama">Tebak Namanya</div>
 		
 			<div class="input-group mb-3 answer-input">
-				 <input type="text" class="form-control" id="User-Answer" placeholder="Ayo Tebak Namanya" ondragenter ="NextLevel(this)" aria-label="Recipient's username" aria-describedby="button-addon2" autocomplete="off">
+				 <select class="form-control" id="User-Answer" placeholder="Ayo Tebak Namanya" onselect= "NextLevel(this)" >
+				 	<option id='0'></option>
+				 	<option id='1'></option>
+				 	<option id='2'></option>
+				 	<option id='3'></option>
+				 	<option id='4'></option>
+				 </select>
 				<button class="btn btn-outline-secondary answer-btn" type="button" id="button-addon2" onclick= "NextLevel(this)">Kumpul</button>
 			</div>
 		</div>
@@ -31,17 +37,32 @@
 		</h1>
 
 		<ul class="Game-Choose-btn-list">	 
-			 <li class="Game-Choose-btn">
-			 	<a href="{{ url_for('views.choose_draft')}}"> Mulai Game Baru </a>
+			 <li class="Game-Choose-btn" id="data">
+			 	
+			 	<a href="{{ url_for('views.choose_draft')}}"> 
+			 	<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-clockwise in-icon" viewBox="0 0 16 16">
+				  <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
+				  <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/>
+				</svg>
+
+
+
+			 	 <small class="href-text">Mulai Game Baru</small> </a>
 			 </li>
+			
 			  <li class="Game-Choose-btn">
-			 	<a href="{{ url_for('views.upload_draft')}}"> Masukan Draft </a>
+			 	<a href="{{ url_for('views.upload_draft')}}" class="">
+
+			 	<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-folder-plus in-icon" viewBox="0 0 16 16">
+				<path d="m.5 3 .04.87a1.99 1.99 0 0 0-.342 1.311l.637 7A2 2 0 0 0 2.826 14H9v-1H2.826a1 1 0 0 1-.995-.91l-.637-7A1 1 0 0 1 2.19 4h11.62a1 1 0 0 1 .996 1.09L14.54 8h1.005l.256-2.819A2 2 0 0 0 13.81 3H9.828a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 6.172 1H2.5a2 2 0 0 0-2 2zm5.672-1a1 1 0 0 1 .707.293L7.586 3H2.19c-.24 0-.47.042-.683.12L1.5 2.98a1 1 0 0 1 1-.98h3.672z"/>
+				  <path d="M13.5 10a.5.5 0 0 1 .5.5V12h1.5a.5.5 0 1 1 0 1H14v1.5a.5.5 0 1 1-1 0V13h-1.5a.5.5 0 0 1 0-1H13v-1.5a.5.5 0 0 1 .5-.5z"/>
+			    </svg>	
+			 	<small class="href-text">Masukan Draft</small> </a>
 			 </li>
-			  <li class="Game-Choose-btn life-section">
-			 	 Sisa Nyawa = <small id="life-tag">5</small>
-			 </li>
+			
+			 
 			 <li class="Game-Choose-btn life-section">
-			 	 Level <small id="level-tag"> 1 </small> <small id="Max-level">/ </small>
+			 	 <small >Level</small> <small id="level-tag"> 1 </small> <small id="Max-level">/ </small>
 			 </li>
 		</ul>
 
@@ -51,17 +72,57 @@
 
 
 
+
+
 <script type="text/javascript">
 
+	var Name = []
+	var First_name = []
+	var Last_name = []
+	var relation = []
 
 	
 
+	
+	var image_files = {{image_files|safe}} ;
+	var image_firstnames = {{image_firstnames|safe}};
+	var image_lastnames = {{image_lastnames|safe}};
+	var image_relations = {{image_relations|safe}}
 
 
+
+
+	for (var i = 0; i < image_files.length; i++){
+		Name.push("static/Pciture_1/" + image_files[i]);
+		First_name.push(image_firstnames[i].toLowerCase());
+		Last_name.push(image_lastnames[i].toLowerCase());
+		relation.push(image_relations[i]);
+	};
+
+	
+	console.log(Name)
+	console.log(First_name)
+
+
+
+	if ( Name == '[]' ){
+		Name=['static/Pciture_1/gambar1.jfif','static/Pciture_1/gambar2.jfif','static/Pciture_1/gambar3.jfif','static/Pciture_1/gambar4.jfif','static/Pciture_1/gambar5.jfif','static/Pciture_1/gambar6.jfif','static/Pciture_1/gambar7.jfif'];
+		First_name =['soekarno','soeharto','bacharuddin','abdurrahman','megawati','susilo', 'joko'];
+		Last_name = ['', '', 'jusuf habibie', 'wahid', 'soekarno putri', 'bambang yudhoyono', 'widodo'];
+		// var Also_known = ['soekarno', '', 'b.j habibie', 'gusdur', ' megawati', 'SBY', 'jokowi' ];
+		relation = ['orang terkenal','orang terkenal','orang terkenal','orang terkenal','orang terkenal','orang terkenal','orang terkenal']
+	}
+
+
+	
+	
 </script>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<script type="text/javascript" src="{{url_for('static', filename='home_Script.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='home_Script.js')}}">
+</script>
+
 <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='home_style.css')}}">
 
 

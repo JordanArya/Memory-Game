@@ -1,0 +1,125 @@
+@import url('home_style.css');
+
+.Chosing-Game{
+	position: static;
+	left: -15%;
+	width: 100%;
+}
+
+
+.background .Upload-box{
+	margin: 2% 2.5%;
+	position: static;
+	width: 80%;
+	background: #86BEDA;
+	height: 93%;
+}
+
+.Game-Choose-btn{
+	width: 120%;
+
+}
+
+#choosing-list{
+	position: static;
+	width: 110%;
+	margin-left: 0%;
+	right: 0%;
+	height: 20%;
+	padding-left: 0%;
+	left: -50%;
+}
+
+#choosing-list{
+	width: 110%;
+	height: 50%;
+}
+
+#choose-submit-button{
+	position: absolute;
+	left: 45%;
+	margin-top: 30%;
+}
+
+.choose-game{
+	color: darkred;
+	display: contents;
+	/*display: inline-block;*/
+	margin: auto auto;
+	/*left: 44%;*/
+	display: none;
+	
+	font-size: 200%;
+}
+
+.background .Chosing-Game .choose-game{
+	display: block;
+	margin: 0 auto;
+	font-size: 150%;
+	left: 48%;
+	top: 10%;
+}
+
+@media screen and (max-width: 500px){
+	.background .Chosing-Game h1{
+		position: fixed;
+		top: 50%;
+		/*margin: auto auto;*/
+	}
+
+	.background{
+		position: fixed;
+		display: block;
+		top: 10%;
+	}
+
+	.Chosing-Game{
+		
+		top: 50%;
+		margin: 15% 50%;
+	}
+
+	.Game-Choose-btn-list{
+		margin: 40% 15%;
+	}
+
+	#choosing-list{
+		width: 80%;
+		height: 120%;
+		margin: 0 auto;
+	}
+
+	.background .Chosing-Game .choose-game{
+		margin: 0 auto;
+		font-size: 150%;
+		
+	}
+
+	}
+
+@media screen and (max-width: 920px){
+
+	.Chosing-Game{
+		position: static;
+		display: contents;
+		left: 10%;
+		margin: 15% 15%;
+	}
+
+	.Game-Choose-btn-list{
+		margin: 40% 0;
+	}
+
+	#choosing-list{
+		width: 80%;
+		height: 1200%;
+		margin: 0 auto;
+	}
+
+	.background .Chosing-Game .choose-game{
+		display: block;
+		left: 25%;
+		font-size: 150%;	
+}
+
+}

@@ -15,40 +15,33 @@
 
 .background .Game{
 	margin: 3% 2%;
-	position: absolute;
+	position: inherit;
 	width: 50%;
 	background: var(--game-background);
 	height: 100%;
 }
 
 
-
-.background .Game .q-picture{
-	position: absolute;
-	margin: 9% 20.5%;
-	width: 60%;
-	height: 50%;
+.input-container{
+		position: inherit;
+		top: 60%;
+		left: 38%;
+		height: 50%;
+		width: 20%;
 }
 
-.input-container{
-		/*position: absolute;*/
-		margin-top: 5%;
-		height: 50%;
-		width: 50%;
-	}
-
-.background .Game .answer-input{
-	position: absolute;
-	margin-top: 60%; 
-	margin-left: 33%;
+.Game .answer-input{
+	position: inherit;
+	top: 70%; 
 	width: 38%;
 	height: 5%;
+	left: 26%;
 	border-radius: 10%;
 }
 
 .background .Game .nama{
-	position: absolute;
-	margin: 50% 42%;
+	position: inherit;
+	/*margin-top: 60%; */
 	font-size: 130%;
 	color: var(--font-color);
 	width: 50%;
@@ -71,7 +64,12 @@
 }
 
 .sub-choose{
-	padding: 3% 3%;
+	position: relative;
+	object-position: center;
+	left: 73%;
+	font-size: 200%;
+	/*font-size: 200%;*/
+	top: 9%;
 	width: 30%;
 }
 
@@ -97,7 +95,7 @@
   background: var(--button-color);
   margin: 5% 10%;
   text-align: center;
-  width: 90%;
+  
 }
 
 .Game-Choose-btn-list .Game-Choose-btn a{
@@ -129,9 +127,116 @@
 	
 }
 
-@media screen and (min-height:  927px){
-	.input-container{
-		/*position: flex;*/
-		margin-top: 40%;
-	}
+.in-icon{
+	display:none;
+	margin: auto auto;
+		overflow: hidden;
+	max-height: 0;
+	opacity: 0;
+	transition: opacity 0.5s ease-in-out;
 }
+
+.Game #q-picture{
+	display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+	object-fit: cover;
+	max-height: 50%;
+	width: auto;
+  height: auto;
+
+
+	}
+
+@media screen and (max-width: 920px){
+	.background{
+		width: 100%;
+		height: 100%;
+		padding: 0% 0%;
+		margin:  4.5% 0;
+		top: 9%;
+
+		}
+
+	.Game #q-picture{
+	position: inherit;
+	width: 30%;
+	left: 27%;
+	height: 50%;
+	object-fit: cover;
+	width: 100%;
+	height: 250px;
+
+	}
+
+	
+
+	.Game .answer-input{
+		left: 32%;
+	}
+
+	.Chosing-Game {	
+		position: inherit;
+		top: -5%;
+		
+	}
+
+	.sub-choose{
+		overflow: hidden;
+		max-height: 0;
+	}
+
+	.background .Chosing-Game{
+	margin: 0;
+	position: fixed;
+	width: 0;
+	background: white;
+	height: 0%;
+}
+
+	.Game-Choose-btn-list{
+
+   display: flex;
+  background: var(--game-background);
+  color: var(--font-color);
+  justify-content: space-around;
+  padding: 20px 0; 
+  height: 9%;
+  top: 4%;
+  width: 100%;
+  align-items: center;
+  overflow: hidden;
+}
+
+	.Game-Choose-btn-list .Game-Choose-btn{
+		
+  padding: 0;
+  font-family: Jost;
+  font-size: 100%;
+  width: 150%;
+  /*height: 100%;*/
+  background: var(--button-color);
+  margin: 1%; 
+}
+
+	.Game #User-Answer{
+	font-size: 80%;
+}
+
+	.in-icon{
+	display: block;
+	max-height: 5%;
+	opacity: 1;
+	}
+
+	.href-text{
+		display: none;
+	}
+
+
+
+
+
+}
+

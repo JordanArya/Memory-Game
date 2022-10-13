@@ -3,48 +3,44 @@
 
 {% block content %}
 
-
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='choose_style.css')}}">
 
 <section class="background">
 	
-	<section class="Game">
-		
-		<img src="{{url_for('static', filename='Pciture_1/gambar1.jpg')}}"  class="q-picture" id="q-picture">
-
-		<div class="input-container" id="input-container">
-			<div class="nama"> Tebak Namanya</div>
-		
-			<div class="input-group mb-3 answer-input">
-				 <input type="text" class="form-control" id="User-Answer" placeholder="Ayo Tebak Namanya" ondragenter ="NextLevel(this)" aria-label="Recipient's username" aria-describedby="button-addon2" autocomplete="off">
-				<button class="btn btn-outline-secondary answer-btn" type="button" id="button-addon2" onclick= "NextLevel(this)">Kumpul</button>
-			</div>
-		</div>
-
-	</section>
+	
 
 
 	<section class="Chosing-Game">
 
-		<h1 class="sub-choose">
-			Game Choose
+		<h1 class="choose-game" id="choose-game">
+			Game Chooses
 		</h1>
 
-		<ul class="Game-Choose-btn-list">	 
-			 <li class="Game-Choose-btn">
-			 	
-			 </li>
+		<form action="" method='POST' class="input" enctype="multipart/form-data">
+		<div class="Game-Choose-btn-list">	
+
+			 <select id="choosing-list" name="choosed">
+			 {% for draft in draft_names %}
+			 	<option> {{ draft }} </option>
+			 {% endfor%}
+			 </select>
+			
+			 <br>
+			 <button type="submit" id="choose-submit-button" class="btn btn-primary"> Submit </button>
 			
 		</ul>
+		</form>
 
 	</section>
+
+
 
 </section>
 
 
 
 
-<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='home_style.css')}}">
-<script type="text/javascript" src="{{url_for('static', filename='home_Script.js')}}"></script>
+
 
 
 

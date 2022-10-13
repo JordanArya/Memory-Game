@@ -1,24 +1,86 @@
-// const Name=['gambar1.jpg','gambar2.jpg','gambar3.jpg','gambar4.jpg','gambar5.jpg','gambar6.jpg']
+     // const Name=['gambar1.jpg','gambar2.jpg','gambar3.jpg','gambar4.jpg','gambar5.jpg','gambar6.jpg']
 
-	const picture_saved = [];
+	// const picture_saved = [];
 	
-	const img = document.getElementById('picture_p');
-	const img_inputed = document.getElementById('input_img');
+	
+	const input_form_element = document.getElementById('input-form');
 	const number = document.getElementById('number_f');
-	const f_name_txt = document.getElementById('input-f-name');
-	const l_name_txt = document.getElementById('input-l-name') ;
-	const relation_txt = document.getElementById('input-relationship');
-	const user_choice = document.getElementById('user-indx');
+	const img = document.getElementById('picture_p');
+
+	var img_inputed = document.getElementById('input_img_1');
+	var f_name_txt = document.getElementById("input-f-name-1");
+	var l_name_txt = document.getElementById("input-l-name-1") ;
+	var relation_txt = document.getElementById("input-relationship-1");
 
 	relation_txt.value = '';
+
+	
+	const user_choice = document.getElementById('user-indx');
+	
+
+	
 
 	function create_option(){
 		var option = document.createElement("option");
 	    option.text = f_name_txt.value + ' ' + l_name_txt.value;
 		user_choice.add(option)
+		user_choice.value = ''
+	}
 
+	function creates_options(element,text){
+		var option = document.createElement("option");
+	    option.text = text
+	    option.value = text
+		element.add(option)
+	}
 
+	function create_new_input(){
+		index = number.innerText
+		var input_first_name = document.createElement('input');
+		var input_last_name = document.createElement('input');
+		var img_input = document.createElement("input");
+		var relationship = document.createElement('select');
 		
+		creates_options(relationship,'Keluarga Inti')
+		creates_options(relationship,'Keluarga Jauh')
+		creates_options(relationship,'Teman Dekat')
+		creates_options(relationship,'Teman Kerja')
+
+		input_first_name.classList.add("input-name", "input-f-name")
+		input_last_name.classList.add("input-name", "input-l-name")
+		relationship.classList.add("input-name","input-relationship")
+		img_input.classList.add("input-name" ,"input_img")
+
+		input_first_name.id = "input-f-name-"+index
+		input_last_name.id = "input-l-name-"+index
+		img_input.id = "input_img_" + index 
+		relationship.id = "input-relationship-"+index
+
+		input_first_name.placeholder = "Siapa Nama depan-nya"
+		input_last_name.placeholder = "Siapa Nama Belakang-nya"
+
+		input_first_name.name = 'fname'
+		input_last_name.name = 'lname'
+
+		input_first_name.required
+		input_last_name.required
+
+		input_first_name.maxlength = 30
+		input_last_name.maxlength = 30
+
+		img_input.accept ='image/*'
+		img_input.oninput = change_picture
+		img_input.name = 'image'
+
+		relationship.name = 'relation'
+		relation_txt.required
+
+		img_input.setAttribute('type',"file")
+
+		document.getElementById('input-form').appendChild(img_input)
+		document.getElementById('input-form').appendChild(input_first_name)
+		document.getElementById('input-form').appendChild(input_last_name)
+		document.getElementById('input-form').appendChild(relationship)
 	}
 
 	function change_option(){
@@ -29,8 +91,9 @@
 	}
 
 
-	function change_picture(self){
-		const data = self.files[0];
+	function change_picture(){
+
+		const data = img_inputed.files[0];
 		if (data){
 			const reader = new FileReader();
 			reader.onload = function(){
@@ -40,127 +103,148 @@
 		reader.readAsDataURL(data);		
 	}}
 
+
+	function change_data(index){
+		f_name_id = 'input-f-name-' +index
+		l_name_id = "input-l-name-" +index
+		relation_id = "input-relationship-"+index
+		input_image_id = "input_img_"+index
+		
+
+		img_inputed = document.getElementById(input_image_id);
+		f_name_txt = document.getElementById(f_name_id);
+		l_name_txt = document.getElementById(l_name_id) ;
+		relation_txt = document.getElementById(relation_id);
+
+		
+	}
+
 	function next(){
-		
-		const f_name  = f_name_txt.value;
-		const l_name = l_name_txt.value; 
-		const relation = relation_txt.value;
-		const datas = img_inputed.files[0];
+		var indx = 'input_img_'+(parseInt(number.textContent)+1)
+		var next_elemnent = document.getElementById(indx)
+		user_choice.value = ''
 
-		 if (picture_saved[parseInt(number.textContent-1)] != undefined){
-			const data = picture_saved[number.textContent-1]
-		
-			if(datas != data[1] && datas != undefined || f_name != data[0][0] && f_name != '' || l_name != data[0][1] && l_name != '' || relation != data[0][2] && relation != ''){
-				
-				if(datas){
-					picture_saved.splice((number.textContent-1),1,[[f_name,l_name,relation],datas]);
-				}
-					
 
-				else {
-					picture_saved.splice((number.textContent-1),1,[[f_name,l_name,relation],data[1]]);
-					
+
+		if (f_name_txt != undefined){
+
+			if(next_elemnent != undefined && f_name_txt.value != '' && l_name_txt.value != '' && img_inputed.value != '' && relation_txt.value !=''){
+				console.log('ahllo')
+				f_name_txt.style.visibility = 'hidden'
+				l_name_txt.style.visibility = 'hidden'
+				img_inputed.style.visibility = 'hidden'
+				relation_txt.visibility = 'hidden'
+
+				number.innerText =  parseInt(number.textContent) +1
+				change_data(number.innerText)
+				console.log(f_name_txt.id)
+
+				var datas = img_inputed.files[0]
+				if (datas){
+					const readers = new FileReader();
+					readers.onload = function(){
+					const result = readers.result;
+					img.src = result
 				}
-	
+					readers.readAsDataURL(datas);		
+				}
+
+				img.src = '../static/icon/No_image_profile.jpg';
+
+				f_name_txt.style.visibility = 'visible'
+				l_name_txt.style.visibility = 'visible'
+				img_inputed.style.visibility = 'visible'
+				relation_txt.style.visibility  = 'visible'
+
+
 			}
-			
-			if (picture_saved[parseInt(number.textContent)] != undefined){
-				const reader = new FileReader();
-				reader.onload = function(){
-				const result = reader.result;
-				img.src = result
-				user_choice.value = user_choice[number.textContent-1].value; 
-				f_name_txt.value = picture_saved[parseInt(number.textContent)-1][0][0];
-				l_name_txt.value =  picture_saved[parseInt(number.textContent)-1][0][1];
-				relation_txt.value =  picture_saved[parseInt(number.textContent)-1][0][2];
-			}
-			reader.readAsDataURL(picture_saved[parseInt(number.textContent)][1]);
+
+			else if(f_name_txt.value != '' && l_name_txt.value != '' && img_inputed.value != '' && relation_txt.value !=''){
+				console.log(f_name_txt.value)
+				console.log(img_inputed.value)
+				console.log('hallo')
+				number.innerText =  parseInt(number.textContent) +1;
+				f_name_txt.style.visibility = 'hidden'
+				l_name_txt.style.visibility = 'hidden'
+				img_inputed.style.visibility = 'hidden'
+				relation_txt.style.visibility = 'hidden'
+
+				create_new_input()
+				create_option()
+				change_data(number.innerText)
+				img.src = '../static/icon/No_image_profile.jpg';
+				relation_txt.value = '';
+			}			
 		}
-
-
-
-		number.innerText =  parseInt(number.textContent) +1;
-		change_option()
-		img_inputed.value = '';
-		f_name_txt.value = '';
-		l_name_txt.value = '';
-		relation_txt.value = '';
-		img.src = '../static/icon/No_image_profile.jpg';
-		user_choice.value = ''; 
-	
-		
 	}
-		
-		else if (img_inputed.files[0] != undefined && f_name != '' && l_name != '' && relation !=''){
-			picture_saved.push([[f_name,l_name,relation],datas])
-			
-			number.innerText =  parseInt(number.textContent) +1;
-			create_option()
-			img_inputed.value = '';
-			img.src = '../static/icon/No_image_profile.jpg';
-			f_name_txt.value = '';
-			l_name_txt.value = '';
-			relation_txt.value = '';
-			user_choice.value = ''; 
 
-			
-	}
-	
-		
-}
 
 	function back(self){
-		if (parseInt(number.textContent) > 1 ){
+		user_choice.value = ''
+		if (number.innerText > 1){
+		number.innerText =  parseInt(number.textContent) -1
+		f_name_txt.style.visibility = 'hidden'
+		l_name_txt.style.visibility = 'hidden'
+		img_inputed.style.visibility = 'hidden'
+		relation_txt.style.visibility = 'hidden'
 
-			const data = picture_saved[parseInt(number.textContent-2)][1]
-			const previous_f_name = picture_saved[parseInt(number.textContent-2)][0][0]
-			const previous_l_name = picture_saved[parseInt(number.textContent-2)][0][1]
-			const previous_relation = picture_saved[parseInt(number.textContent-2)][0][2]
-			
-		if (data){
-			const reader = new FileReader();
-			reader.onload = function(){
-			const result = reader.result;
+		change_data(number.innerText)
+		// create_option()
+
+		f_name_txt.style.visibility = 'visible'
+		l_name_txt.style.visibility = 'visible'
+		img_inputed.style.visibility = 'visible'
+		relation_txt.style.visibility  = 'visible'
+
+		var datas = img_inputed.files[0]
+		if (datas){
+			const readers = new FileReader();
+			readers.onload = function(){
+			const result = readers.result;
 			img.src = result
-			f_name_txt.value = previous_f_name;
-			l_name_txt.value = previous_l_name;
-			relation_txt.value = previous_relation; 
-
-			number.innerText =  parseInt(number.textContent) -1
 		}
-
-			reader.readAsDataURL(data);
-
-
-	}}
-		
-		user_choice.value = user_choice[number.textContent - 2].value
-		
-	}
+			readers.readAsDataURL(datas);		
+		}}
+}
 
 
 	function change_to_selected_index(){
-		var i = user_choice.selectedIndex
-		const data = picture_saved[parseInt(i)][1]
-		const previous_f_name = picture_saved[i][0][0]
-		const previous_l_name = picture_saved[i][0][1]
-		const previous_relation = picture_saved[i][0][2]
+		f_name_txt.style.visibility = 'hidden'
+		l_name_txt.style.visibility = 'hidden'
+		img_inputed.style.visibility = 'hidden'
+		relation_txt.style.visibility = 'hidden'
 
-		if (data){
-			const reader = new FileReader();
-			reader.onload = function(){
-			const result = reader.result;
+		var i = user_choice.selectedIndex +1
+		number.innerText = i
+
+		console.log(i)
+		change_data(i)
+
+		var datas = img_inputed.files[0]
+		if (datas){
+			const readers = new FileReader();
+			readers.onload = function(){
+			const result = readers.result;
 			img.src = result
-			f_name_txt.value = previous_f_name;
-			l_name_txt.value = previous_l_name;
-			relation_txt.value = previous_relation; 
-
-			number.innerText =  i+1
+		}
+			readers.readAsDataURL(datas);		
 		}
 
-			reader.readAsDataURL(data);
+		f_name_txt.style.visibility = 'visible'
+		l_name_txt.style.visibility = 'visible'
+		img_inputed.style.visibility = 'visible'
+		relation_txt.style.visibility  = 'visible'
+
 
 
 	}
 
-	}
+
+
+
+	 
+
+// var file = document.querySelector('#files > input[type="file"]').files[0];
+// getBase64(file); // prints the base64 string
+
+
